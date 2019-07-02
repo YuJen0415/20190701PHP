@@ -1,0 +1,40 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<h1 id="test1">Bryan big idiot</h1>
+
+<div id="container">
+    <h1>H1</h1><p>P1</p>
+    <hr>
+    <h1>H2</h1><p>P2</p>
+</div>
+
+<script>
+    //  $(selector) => element(s)
+    // h1 $('h1') => getElementByTag
+    // id = 'test' => $('#test1')  ById
+    //  class = 'group' => $('.group) => get by class name
+    $('#test1').click(function(){
+        $('#test1').css('color', 'red').css('background-color', 'yellow');
+        
+        let ps = $('p');
+        for(let p of ps) {
+            p.style.color = 'blue';
+            p.style.backgroundColor = 'yellow';
+        }
+
+        $jObj = $(document.getElementById('container'));
+        $jObj.css('background-color', 'pink');
+    });
+
+    let isClickDisable = false;
+    $('#go').click(function() {
+        isClickDisable = !isClickDisable;
+        $(this).attr('disable', isClickDisable);
+        $('.inputText').val('Hello Bryan');
+    });
+
+    function toClickEnable() {
+        isClickDisable = true;
+        $('#go').attr('disable', isClickDisable);
+    }
+</script>

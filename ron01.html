@@ -1,0 +1,30 @@
+
+
+<script>
+    var xhttp = new XMLHttpRequest();
+    let max;
+
+    function callback() {
+        let state = xhttp.readyState;
+        let status = xhttp.status;
+        // console.log("back oK : " + state);
+
+        if (state == 4) {
+            if (status == 200) {
+                document.getElementById('result').innerHTML = xhttp.responseText;
+            }
+        }
+    }
+
+    function sendTest() {
+        max = document.getElementById("max").value;
+        xhttp.onreadystatechange = callback;
+        xhttp.open("GET", "ron01.php?max=" + max, true);
+        xhttp.send();
+    }
+</script>
+
+<input type="number" id="max">
+<button onclick="sendTest()">e04</button>
+
+<div id="result" ></div>
